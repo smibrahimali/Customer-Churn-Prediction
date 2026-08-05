@@ -12,3 +12,13 @@ df['Churn'] = df['Churn'].map({'Yes':1, 'No': 0})
 
 print(df.head())
 print(df.info())
+
+print(df['Churn'].mean())
+print(df.groupby('Contract')['Churn'].mean())
+
+import matplotlib.pyplot as plt
+
+df.groupby('Contract')['Churn'].mean().plot(kind='bar')
+plt.title('Churn Rate by Contract Type')
+plt.ylabel('Churn Rate')
+plt.show()
